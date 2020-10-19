@@ -4,7 +4,7 @@
 [![](https://img.shields.io/npm/v/stimulus-popover.svg)](https://www.npmjs.com/package/stimulus-popover)
 [![](https://github.com/stimulus-components/stimulus-popover/workflows/Lint/badge.svg)](https://github.com/stimulus-components/stimulus-popover)
 [![](https://img.shields.io/github/license/stimulus-components/stimulus-popover.svg)](https://github.com/stimulus-components/stimulus-popover)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bc6c7113-e3e7-4d1f-9508-4b631eea2e70/deploy-status)](https://stimulus-popover.netlify.com)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cbec1815-8e5b-4f45-8cb2-44d24e8c9cf5/deploy-status)](https://stimulus-popover.netlify.com)
 
 ## Getting started
 
