@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <title>Stimulus Popover</title>
+    <script type="module" src="./src/index.js" defer></script>
+    <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js" defer></script>
+
+    <script type="module" defer>
+      import Popover from './src/index.js'
+
+      const application = Stimulus.Application.start()
+      application.register('popover', Popover)
+    </script>
+
+    <style>
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        display: inline-block;
+        margin: 0 10px;
+      }
+
+      a {
+        color: #667eea;
+        display: inline-block;
+      }
+
+      .badges a {
+        margin: 0 0.25rem;
+      }
+
+      pre code {
+        border-radius: 0.5rem;
+        text-align: left;
+        font-family: Menlo, 'Courier New', Courier, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-full max-w-6xl mx-auto my-24 p-4">
+      <h1 class="text-center mb-8 text-5xl font-bold">Stimulus Popover</h1>
+
+      <p class="text-center mb-4">
+        A Stimulus controller to deal with HTML popover.
+      </p>
+
+      <p class="text-center badges">
+        <a href="https://www.npmjs.com/package/stimulus-popover">
+          <img src="https://img.shields.io/npm/dt/stimulus-popover.svg" />
+        </a>
+
+        <a href="https://www.npmjs.com/package/stimulus-popover">
+          <img src="https://img.shields.io/npm/v/stimulus-popover.svg" />
+        </a>
+
+        <a href="https://github.com/stimulus-components/stimulus-popover">
+          <img src="https://github.com/stimulus-components/stimulus-popover/workflows/Lint/badge.svg" />
+        </a>
+
+        <a href="https://github.com/stimulus-components/stimulus-popover">
+          <img src="https://img.shields.io/github/license/stimulus-components/stimulus-popover.svg" />
+        </a>
+
+        <a href="https://stimulus-popover.netlify.com/">
+          <img src="https://api.netlify.com/api/v1/badges/bc6c7113-e3e7-4d1f-9508-4b631eea2e70/deploy-status" />
+        </a>
+      </p>
+
+      <h2 class="text-center text-2xl font-bold my-4">Essential links</h2>
+
+      <ul class="text-center mb-8">
+        <li>
+          <a href="https://github.com/stimulus-components/stimulus-popover" target="_blank" rel="noopener">
+            Github
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.npmjs.com/package/stimulus-popover" target="_blank" rel="noopener">
+            Npm
+          </a>
+        </li>
+      </ul>
+
+      <section class="mt-16">
+        <h2 class="text-xl mb-2 mt-8">With AJAX</h2>
+        <div>
+          This is my Github card available on
+          <a
+            href="https://github.com/stimulus-components/stimulus-popover"
+            data-controller="popover"
+            data-action="mouseover->popover#mouseOver"
+            data-popover-url="/card.html"
+          >
+            Github </a
+          >.
+        </div>
+
+        <h2 class="text-xl mb-2 mt-8">With static html</h2>
+        <div data-controller="popover">
+          This is my Github card available on
+          <a
+            href="https://github.com/stimulus-components/stimulus-popover"
+            data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut"
+          >
+            Github </a
+          >.
+
+          <template data-target="popover.content">
+            <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+              <div class="px-6 py-4 flex">
+                <img
+                  class="rounded-full h-16 w-16"
+                  src="https://avatars0.githubusercontent.com/u/8252238?s=460&u=3ba211d048536bfe01d120894eba9d3254db70d5&v=4"
+                  alt=""
+                />
+
+                <div class="ml-4">
+                  <div class="font-bold text-xl mb-2">Guillaume Briday</div>
+                  <p class="text-grey-500 text-sm">This content is in a hidden template.</p>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
