@@ -4,7 +4,7 @@ import tippy from 'tippy.js'
 export default class extends Controller {
   static targets = ['content']
 
-  connect () {
+  initialize () {
     this.fetch = this.fetch.bind(this)
   }
 
