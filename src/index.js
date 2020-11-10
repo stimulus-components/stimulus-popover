@@ -37,12 +37,13 @@ export default class extends Controller {
   }
 
   popover (element, content) {
-    const instance = tippy(element, {
-      content: content,
-      allowHTML: true
-    })
+    if (!this.tippyInstance) {
+      this.tippyInstance = tippy(element, this.tippyOptions)
+      this.tippyInstance.show()
+    }
 
-    instance.show()
+    this.tippyInstance.setContent(content)
+  }
 
     return instance
   }
