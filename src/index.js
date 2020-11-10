@@ -8,6 +8,12 @@ export default class extends Controller {
     this.fetch = this.fetch.bind(this)
   }
 
+  disconnect () {
+    if (this.tippyInstance) {
+      this.tippyInstance.destroy()
+    }
+  }
+
   async mouseOver (event) {
     let element = null
     let content = null
