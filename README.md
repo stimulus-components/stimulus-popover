@@ -55,7 +55,7 @@ With server rendered content on the fly:
   <a
     href="/profile"
     data-controller="popover"
-    data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut"
+    data-action="mouseover->popover#mouseOver"
     data-popover-url="<%= card_path %>"
   >
     profile card
@@ -69,7 +69,7 @@ With static html:
   This is my Github card available on
   <a
     href="/profile"
-    data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut"
+    data-action="mouseover->popover#mouseOver"
   >
     Github
   </a>
@@ -86,7 +86,6 @@ With static html:
 | --------- | ------- | ----------- | -------- |
 | `data-popover-url` | `undefined` | URL to fetch the content. | ✅ |
 
-
 ## Extending Controller
 
 You can use inheritance to extend the functionality of any Stimulus components.
@@ -98,6 +97,9 @@ export default class extends Popover {
   connect() {
     super.connect()
     console.log("Do what you want here.")
+
+    // Get tippy options. Override this method if needed.
+    this.tippyOptions
   }
 }
 ```

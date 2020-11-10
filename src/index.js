@@ -8,6 +8,12 @@ export default class extends Controller {
     this.fetch = this.fetch.bind(this)
   }
 
+  disconnect () {
+    if (this.tippyInstance) {
+      this.tippyInstance.destroy()
+    }
+  }
+
   async mouseOver (event) {
     let element = null
     let content = null
@@ -22,12 +28,7 @@ export default class extends Controller {
       content = this.remoteContent
     }
 
-    this.tippyInstance = this.popover(element, content)
-  }
-
-  mouseOut () {
-    this.tippyInstance.destroy()
-    this.tippyInstance = undefined
+    this.popover(element, content)
   }
 
   async fetch () {
@@ -36,19 +37,21 @@ export default class extends Controller {
     }
 
     const response = await fetch(this.data.get('url'))
-    const html = await response.text()
-
-    this.remoteContent = html
+    this.remoteContent = await response.text()
   }
 
   popover (element, content) {
-    const instance = tippy(element, {
-      content: content,
+    if (!this.tippyInstance) {
+      this.tippyInstance = tippy(element, this.tippyOptions)
+      this.tippyInstance.show()
+    }
+
+    this.tippyInstance.setContent(content)
+  }
+
+  get tippyOptions () {
+    return {
       allowHTML: true
-    })
-
-    instance.show()
-
-    return instance
+    }
   }
 }
