@@ -22,12 +22,7 @@ export default class extends Controller {
       content = this.remoteContent
     }
 
-    this.tippyInstance = this.popover(element, content)
-  }
-
-  mouseOut () {
-    this.tippyInstance.destroy()
-    this.tippyInstance = undefined
+    this.popover(element, content)
   }
 
   async fetch () {

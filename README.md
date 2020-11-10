@@ -55,7 +55,7 @@ With server rendered content on the fly:
   <a
     href="/profile"
     data-controller="popover"
-    data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut"
+    data-action="mouseover->popover#mouseOver"
     data-popover-url="<%= card_path %>"
   >
     profile card
@@ -69,7 +69,7 @@ With static html:
   This is my Github card available on
   <a
     href="/profile"
-    data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut"
+    data-action="mouseover->popover#mouseOver"
   >
     Github
   </a>
@@ -85,7 +85,6 @@ With static html:
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
 | `data-popover-url` | `undefined` | URL to fetch the content. | ✅ |
-
 
 ## Extending Controller
 
