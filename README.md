@@ -97,6 +97,9 @@ export default class extends Popover {
   connect() {
     super.connect()
     console.log("Do what you want here.")
+
+    // Get tippy options. Override this method if needed.
+    this.tippyOptions
   }
 }
 ```

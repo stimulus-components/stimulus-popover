@@ -45,6 +45,9 @@ export default class extends Controller {
     this.tippyInstance.setContent(content)
   }
 
-    return instance
+  get tippyOptions () {
+    return {
+      allowHTML: true
+    }
   }
 }
