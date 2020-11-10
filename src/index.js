@@ -37,9 +37,7 @@ export default class extends Controller {
     }
 
     const response = await fetch(this.data.get('url'))
-    const html = await response.text()
-
-    this.remoteContent = html
+    this.remoteContent = await response.text()
   }
 
   popover (element, content) {
