@@ -97,14 +97,19 @@ export default class extends Popover {
   connect() {
     super.connect()
     console.log("Do what you want here.")
+  }
 
-    // Get tippy options. Override this method if needed.
-    this.tippyOptions
+  // You can override this getter if needed.
+  // The object returned is the props for the Tippy instance.
+  get tippyOptions () {
+    return {
+      // Your options here
+    }
   }
 }
 ```
 
-These controllers will automatically have access to targets defined in the parent class.
+This controller will automatically has access to targets defined in the parent class.
 
 If you override the connect, disconnect or any other methods from the parent, you'll want to call `super.method()` to make sure the parent functionality is executed.
 
