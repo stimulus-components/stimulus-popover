@@ -88,7 +88,7 @@ With static html:
 
 ## Extending Controller
 
-You can use inheritance to extend the functionality of any Stimulus components.
+You can use inheritance to extend the functionality of any Stimulus component:
 
 ```js
 import Popover from "stimulus-popover"
@@ -109,9 +109,9 @@ export default class extends Popover {
 }
 ```
 
-This controller will automatically has access to targets defined in the parent class.
+This controller will automatically have access to targets defined in the parent class.
 
-If you override the connect, disconnect or any other methods from the parent, you'll want to call `super.method()` to make sure the parent functionality is executed.
+If you override the `connect`, `disconnect` or any other methods from the parent, you'll want to call `super.method()` to make sure the parent functionality is executed.
 
 ## Development
 
