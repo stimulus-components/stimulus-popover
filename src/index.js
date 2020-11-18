@@ -1,57 +1,33 @@
 import { Controller } from 'stimulus'
-import tippy from 'tippy.js'
 
 export default class extends Controller {
-  static targets = ['content']
+  static targets = ['card', 'content']
 
-  initialize () {
-    this.fetch = this.fetch.bind(this)
-  }
-
-  disconnect () {
-    if (this.tippyInstance) {
-      this.tippyInstance.destroy()
-    }
-  }
-
-  async mouseOver (event) {
-    let element = null
+  async show (event) {
     let content = null
 
     if (this.hasContentTarget) {
-      element = event.target
       content = this.contentTarget.innerHTML
     } else {
-      await this.fetch()
-
-      element = this.element
-      content = this.remoteContent
+      content = await this.fetch()
     }
 
-    this.popover(element, content)
+    const fragment = document.createRange().createContextualFragment(content)
+    event.target.appendChild(fragment)
+  }
+
+  hide () {
+    if (this.hasCardTarget) {
+      this.cardTarget.remove()
+    }
   }
 
   async fetch () {
-    if (this.remoteContent) {
-      return this.remoteContent
+    if (!this.remoteContent) {
+      const response = await fetch(this.data.get('url'))
+      this.remoteContent = await response.text()
     }
 
-    const response = await fetch(this.data.get('url'))
-    this.remoteContent = await response.text()
-  }
-
-  popover (element, content) {
-    if (!this.tippyInstance) {
-      this.tippyInstance = tippy(element, this.tippyOptions)
-      this.tippyInstance.show()
-    }
-
-    this.tippyInstance.setContent(content)
-  }
-
-  get tippyOptions () {
-    return {
-      allowHTML: true
-    }
+    return this.remoteContent
   }
 }
