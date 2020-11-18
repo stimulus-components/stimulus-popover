@@ -10,8 +10,6 @@
 
 A Stimulus controller to deal with HTML popover.
 
-This controller is using [Tippy](https://atomiks.github.io/tippyjs/) behind the scene.
-
 ## Installation
 
 ```bash
@@ -28,6 +26,8 @@ application.register("popover", Popover)
 ```
 
 ## Usage
+
+### With remote content
 
 In your controller:
 ```ruby
@@ -50,32 +50,43 @@ In your view:
 
 With server rendered content on the fly:
 ```html
-<div>
+<div
+  data-controller="popover"
+  data-popover-url="<%= card_path %>"
+>
   You can load popover with AJAX. For instance, this is my
   <a
     href="/profile"
-    data-controller="popover"
-    data-action="mouseover->popover#mouseOver"
-    data-popover-url="<%= card_path %>"
+    data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut"
   >
     profile card
   </a>
 </div>
 ```
 
-With static html:
+In the card partial `app/views/users/_card.html.erb`:
+```html
+<div data-target="popover.card">
+  <p>This content is loaded with AJAX.</p>
+</div>
+```
+
+### With local template
+
 ```html
 <div data-controller="popover">
   This is my Github card available on
   <a
     href="/profile"
-    data-action="mouseover->popover#mouseOver"
+    data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut"
   >
     Github
   </a>
 
   <template data-target="popover.content">
-    <p>This is the popover content.</p>
+    <div data-target="popover.card">
+      <p>This content is in a hidden template.</p>
+    </div>
   </template>
 </div>
 ```
@@ -85,6 +96,9 @@ With static html:
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
 | `data-popover-url` | `undefined` | URL to fetch the content. | ✅ |
+
+
+**Important note**: It's up to **you** to provide the popover style!
 
 ## Extending Controller
 
@@ -97,14 +111,6 @@ export default class extends Popover {
   connect() {
     super.connect()
     console.log("Do what you want here.")
-  }
-
-  // You can override this getter if needed.
-  // The object returned is the props for the Tippy instance.
-  get tippyOptions () {
-    return {
-      // Your options here
-    }
   }
 }
 ```
