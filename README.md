@@ -57,7 +57,7 @@ With server rendered content on the fly:
   You can load popover with AJAX. For instance, this is my
   <a
     href="/profile"
-    data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut"
+    data-action="mouseover->popover#show mouseout->popover#hide"
   >
     profile card
   </a>
@@ -78,7 +78,7 @@ In the card partial `app/views/users/_card.html.erb`:
   This is my Github card available on
   <a
     href="/profile"
-    data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut"
+    data-action="mouseover->popover#show mouseout->popover#hide"
   >
     Github
   </a>
