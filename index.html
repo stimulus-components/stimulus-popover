@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet" />
 
     <style>
-      [data-target='popover.card']::after {
+      [data-popover-target='card']::after {
         content: '';
         position: absolute;
         top: 100%;
@@ -136,7 +136,7 @@
     <div class="relative h-full max-w-5xl mx-auto px-4">
       <section class="mt-16">
         <h2 class="text-xl mb-2 mt-8">With remote content</h2>
-        <div data-controller="popover" data-popover-url="/card.html">
+        <div data-controller="popover" data-popover-url-value="/card.html">
           This is my Github card available on
           <a
             href="https://github.com/stimulus-components/stimulus-popover"
@@ -158,9 +158,9 @@
             Github </a
           >.
 
-          <template data-target="popover.content">
+          <template data-popover-target="content">
             <div
-              data-target="popover.card"
+              data-popover-target="card"
               class="max-w-sm rounded shadow-lg bg-white absolute left-0"
               style="bottom: 2rem; width: max-content;"
             >

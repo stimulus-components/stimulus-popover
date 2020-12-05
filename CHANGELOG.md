@@ -6,6 +6,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0] - 2020-12-05
+
+### Added
+
+- Support for Stimulus 2.0
+
+### Changed
+
+- **Breaking** Using the new `values` static property
+
+```diff
+- <div data-controller="popover" data-popover-url="/card.html">
++ <div data-controller="popover" data-popover-url-value="/card.html">
+```
+
+- **Breaking** Using the new syntax for `targets`.
+
+```diff
+- <div data-controller="popover" data-target="popover.card">
++ <div data-controller="popover" data-popover-target="card">
+```
+
 ## [3.0.0] - 2020-11-18
 
 ### Changed

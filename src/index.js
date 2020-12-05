@@ -2,6 +2,9 @@ import { Controller } from 'stimulus'
 
 export default class extends Controller {
   static targets = ['card', 'content']
+  static values = {
+    url: String
+  }
 
   async show (event) {
     let content = null
@@ -24,7 +27,7 @@ export default class extends Controller {
 
   async fetch () {
     if (!this.remoteContent) {
-      const response = await fetch(this.data.get('url'))
+      const response = await fetch(this.urlValue)
       this.remoteContent = await response.text()
     }
 
