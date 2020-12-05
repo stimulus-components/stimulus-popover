@@ -15,6 +15,8 @@ export default class extends Controller {
       content = await this.fetch()
     }
 
+    if (!content) return
+
     const fragment = document.createRange().createContextualFragment(content)
     event.target.appendChild(fragment)
   }
@@ -27,6 +29,12 @@ export default class extends Controller {
 
   async fetch () {
     if (!this.remoteContent) {
+
+      if (!this.hasUrlValue) {
+        console.error('[stimulus-popover] You need to pass an url to fetch the popover content.')
+        return
+      }
+
       const response = await fetch(this.urlValue)
       this.remoteContent = await response.text()
     }
