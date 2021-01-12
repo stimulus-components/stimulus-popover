@@ -137,26 +137,26 @@
       <section class="mt-16">
         <h2 class="text-xl mb-2 mt-8">With remote content</h2>
         <div data-controller="popover" data-popover-url-value="/card.html">
-          This is my Github card available on
+          This is my GitHub card available on
           <a
             href="https://github.com/stimulus-components/stimulus-popover"
             class="relative"
             data-action="mouseover->popover#show mouseout->popover#hide"
           >
-            Github </a
-          >.
+            <span class="text-blue-600 no-underline hover:underline">GitHub</span></a
+          >
         </div>
 
         <h2 class="text-xl mb-2 mt-8">With local template</h2>
         <div data-controller="popover">
-          This is my Github card available on
+          This is my GitHub card available on
           <a
             href="https://github.com/stimulus-components/stimulus-popover"
             class="relative"
             data-action="mouseover->popover#show mouseout->popover#hide"
           >
-            Github </a
-          >.
+            <span class="text-blue-600 no-underline hover:underline">GitHub</span></a
+          >
 
           <template data-popover-target="content">
             <div
