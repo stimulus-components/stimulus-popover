@@ -7,6 +7,10 @@ export default class extends Controller {
   }
 
   async show (event) {
+    this.timeout = setTimeout(this._show.bind(this, event), 500);
+  }
+
+  async _show(event){
     let content = null
 
     if (this.hasContentTarget) {
@@ -28,6 +32,8 @@ export default class extends Controller {
   }
 
   async fetch () {
+    clearTimeout(this.timeout);
+    
     if (!this.remoteContent) {
 
       if (!this.hasUrlValue) {
