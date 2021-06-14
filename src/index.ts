@@ -27,7 +27,7 @@ export default class extends Controller {
 
     const fragment: DocumentFragment = document.createRange().createContextualFragment(content)
     // @ts-ignore
-    event.target.appendChild(fragment)
+    event.currentTarget.appendChild(fragment)
   }
 
   hide (): void {
