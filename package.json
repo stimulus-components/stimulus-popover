@@ -1,6 +1,6 @@
 {
   "name": "stimulus-popover",
-  "version": "5.0.1",
+  "version": "6.0.0",
   "description": "A Stimulus controller to deal with HTML popover.",
   "keywords": [
     "stimulus",
@@ -34,11 +34,11 @@
     "@babel/preset-typescript": "^7.13.0",
     "np": "^7.5.0",
     "prettier-standard": "16.4.1",
-    "stimulus": "^2.0.0",
+    "@hotwired/stimulus": "^3.0.0",
     "typescript": "^4.3.2",
     "vite": "^2.3.6"
   },
   "peerDependencies": {
-    "stimulus": "^2.0.0"
+    "@hotwired/stimulus": "^3.0.0"
   }
 }
