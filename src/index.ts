@@ -15,6 +15,9 @@ export default class extends Controller {
   }
 
   async show (event: Event): Promise<void> {
+    // Temporally variable to prevent `event.currentTarget` to being null.
+    const element = event.currentTarget
+
     let content: string = null
 
     if (this.hasContentTarget) {
@@ -27,7 +30,7 @@ export default class extends Controller {
 
     const fragment: DocumentFragment = document.createRange().createContextualFragment(content)
     // @ts-ignore
-    event.currentTarget.appendChild(fragment)
+    element.appendChild(fragment)
   }
 
   hide (): void {
