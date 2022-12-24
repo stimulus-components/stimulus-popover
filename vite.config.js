@@ -1,13 +1,14 @@
-import path from 'path'
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
 
-export default ({ mode }) => {
+export default defineConfig(({ mode }) => {
   if (mode === 'netlify') {
     return {
       build: {
         rollupOptions: {
           input: {
-            index: path.resolve(__dirname, 'index.html'),
-            card: path.resolve(__dirname, 'card.html')
+            index: resolve(__dirname, 'index.html'),
+            card: resolve(__dirname, 'card.html')
           }
         }
       }
@@ -17,8 +18,9 @@ export default ({ mode }) => {
   return {
     build: {
       lib: {
-        entry: path.resolve(__dirname, 'src/index.ts'),
-        name: 'stimulus-popover'
+        entry: resolve(__dirname, 'src/index.ts'),
+        name: 'StimulusPopover',
+        fileName: 'stimulus-popover'
       },
       rollupOptions: {
         external: ['@hotwired/stimulus'],
@@ -30,4 +32,4 @@ export default ({ mode }) => {
       }
     }
   }
-}
+})
