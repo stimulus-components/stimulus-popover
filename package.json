@@ -17,7 +17,7 @@
   "homepage": "https://github.com/stimulus-components/stimulus-popover",
   "private": false,
   "main": "dist/stimulus-popover.umd.js",
-  "module": "dist/stimulus-popover.es.js",
+  "module": "dist/stimulus-popover.mjs",
   "scripts": {
     "format": "prettier-standard  '**/*.{ts,css,html}' --format",
     "lint": "prettier-standard  '**/*.{ts,css,html}' --lint",
@@ -28,15 +28,18 @@
     "np": "np --no-2fa --no-test"
   },
   "devDependencies": {
-    "@babel/core": "7.18.10",
+    "@babel/core": "7.20.7",
     "@babel/plugin-syntax-class-properties": "7.12.13",
-    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-env": "^7.20.2",
     "@babel/preset-typescript": "^7.18.6",
-    "@hotwired/stimulus": "^3.1.0",
+    "@hotwired/stimulus": "^3.2.1",
+    "autoprefixer": "^10.4.13",
     "np": "^7.6.2",
+    "postcss": "^8.4.20",
     "prettier-standard": "16.4.1",
-    "typescript": "^4.7.4",
-    "vite": "^2.3.6"
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.3"
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3.1.0"
