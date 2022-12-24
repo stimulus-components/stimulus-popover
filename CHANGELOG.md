@@ -6,6 +6,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.2.0] - 2022-12-23
+
+### Added
+
+- Adding `name` in library export to use the package with CDN, Sprockets and `import-maps`.
+
+### Chore
+
+- Bump dependencies.
+- Upgrading to Vite `4.x`.
+- Docs new UI.
+
+## [6.1.0] - 2022-08-12
+
+### Chore
+
+- Using `mouseenter` and `mouseleave` events
+- Fix error when target is null
+
+## [6.0.0] - 2022-08-12
+
 ### Chore
 
 - **Breaking** Upgrading Stimulus to `3.x` and change namespace from `stimulus` to `@hotwired/stimulus`.
