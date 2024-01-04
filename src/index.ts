@@ -9,14 +9,18 @@ export default class extends Controller {
   urlValue: string
   remoteContent: string
 
-  static targets = ['card', 'content']
+  static targets = [
+    'card',
+    'content',
+    'placement',
+  ]
   static values = {
     url: String
   }
 
   async show (event: Event): Promise<void> {
     // Temporally variable to prevent `event.currentTarget` to being null.
-    const element = event.currentTarget
+    const element = this.hasPlacementTarget ? this.placementTarget : event.currentTarget
 
     let content: string = null
 
