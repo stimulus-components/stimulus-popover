@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-[data-popover-target='card']::after {
-  content: '';
+[data-popover-target="card"]::after {
+  content: "";
   position: absolute;
   top: 100%;
   left: 1rem;

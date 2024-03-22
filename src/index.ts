@@ -1,6 +1,6 @@
-import { Controller } from '@hotwired/stimulus'
+import { Controller } from "@hotwired/stimulus"
 
-export default class extends Controller {
+export default class Popover extends Controller {
   hasCardTarget: boolean
   hasContentTarget: boolean
   hasUrlValue: boolean
@@ -9,12 +9,12 @@ export default class extends Controller {
   urlValue: string
   remoteContent: string
 
-  static targets = ['card', 'content']
+  static targets = ["card", "content"]
   static values = {
-    url: String
+    url: String,
   }
 
-  async show (event: Event): Promise<void> {
+  async show(event: Event): Promise<void> {
     // Temporally variable to prevent `event.currentTarget` to being null.
     const element = event.currentTarget
 
@@ -33,16 +33,16 @@ export default class extends Controller {
     element.appendChild(fragment)
   }
 
-  hide (): void {
+  hide(): void {
     if (this.hasCardTarget) {
       this.cardTarget.remove()
     }
   }
 
-  async fetch (): Promise<string> {
+  async fetch(): Promise<string> {
     if (!this.remoteContent) {
       if (!this.hasUrlValue) {
-        console.error('[stimulus-popover] You need to pass an url to fetch the popover content.')
+        console.error("[stimulus-popover] You need to pass an url to fetch the popover content.")
         return
       }
 

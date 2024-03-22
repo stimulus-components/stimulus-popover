@@ -1,10 +1,21 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [7.0.0] - 2024-03-17
+
+### Chore
+
+- Renaming the component from `stimulus-popover` to `@stimulus-components/popover`
+- Upgrading dependencies
+- Exporting Typescript Types
+- Updating demo UI
+- Add [Stimulus LSP](https://github.com/marcoroth/stimulus-lsp) compatibility
 
 ## [6.2.0] - 2022-12-23
 
@@ -75,19 +86,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [3.0.0] - 2020-11-18
 
 ### Changed
+
 **Breaking** - Removing Tippy as dependency.
 **Breaking** - Rename `mouseOver` to `show`.
 
 ### Added
+
 - Add `hide` action.
 
 ## [2.0.0] - 2020-11-10
+
 ### Added
+
 - Adding `tippyOptions` getter to simply override default options.
 - `tippy` instance is now a singleton.
 - Destroy `tippy` instance on disconnect.
 
 ### Changed
+
 **Breaking** - Removing `mouseOut` action.
 **Breaking** - `popover` action does not return a new `tippy` instance.
 
